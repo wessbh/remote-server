@@ -4,13 +4,13 @@ const cors = require("cors");
 const dbConfig = require("./app/config/db.config");
 
 const app = express();
-
+var morgan = require('morgan')
 var corsOptions = {
   origin: "http://localhost:8081"
 };
 
 app.use(cors(corsOptions));
-
+app.use(morgan('tiny'));
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 
@@ -21,7 +21,7 @@ const db = require("./app/models");
 const Role = db.role;
 
 db.mongoose
-  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+  .connect('mongodb+srv://wessbh:01012009@cluster0.8wflp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -36,7 +36,7 @@ db.mongoose
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome :)" });
 });
 
 // routes

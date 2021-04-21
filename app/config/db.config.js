@@ -1,5 +1,5 @@
 module.exports = {
-  HOST: "localhost",
+  HOST: "cluster0-shard-00-00.8wflp.mongodb.net",
   PORT: 27017,
-  DB: "bezkoder_db"
+  DB: "app_db"
 };
