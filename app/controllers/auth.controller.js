@@ -38,7 +38,8 @@ exports.signup = (req, res) => {
             }
 
             res.status(200).send({ 
-              status: 200,
+              status: 'success',
+              code: 200,
               message: "User was registered successfully!" 
             });
           });
@@ -59,7 +60,8 @@ exports.signup = (req, res) => {
           }
 
           res.status(200).send({ 
-            status: 200,
+            status: 'success',
+            code: 200,
             message: "User was registered successfully!" 
           });
         });
@@ -108,12 +110,15 @@ exports.signin = (req, res) => {
         authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
       }
       res.status(200).send({
-        status: 200,
-        id: user._id,
-        username: user.username,
-        email: user.email,
-        roles: authorities,
-        accessToken: token
+        status: 'success',
+        code: 200,
+        data: {
+          id: user._id,
+          username: user.username,
+          email: user.email,
+          roles: authorities,
+          accessToken: token
+        }
       });
     });
 };
