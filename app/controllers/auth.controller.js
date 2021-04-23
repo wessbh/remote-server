@@ -9,7 +9,8 @@ exports.signup = (req, res) => {
   const user = new User({
     username: req.body.username,
     email: req.body.email,
-    password: bcrypt.hashSync(req.body.password, 8)
+    password: bcrypt.hashSync(req.body.password, 8),
+    firebase_token: req.body.firebase_token
   });
 
   user.save(err => {
@@ -66,7 +67,8 @@ exports.signin = (req, res) => {
           id: user._id,
           username: user.username,
           email: user.email,
-          accessToken: token
+          accessToken: token,
+          firebase_token: user.firebase_token
         }
       });
     });
