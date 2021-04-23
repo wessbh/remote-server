@@ -2,6 +2,7 @@ const config = require("../config/auth.config");
 const db = require("../models");
 const User = db.user;
 const Role = db.role;
+var crypto = require("crypto");
 exports.allAccess = (req, res) => {
   res.status(200).send("Public Content.");
 };
@@ -18,7 +19,7 @@ exports.moderatorBoard = (req, res) => {
   res.status(200).send("Moderator Content.");
 };
 exports.allUsers = (req, res) => {
-  User.find({}, function(err, users) {
+  User.find({}, function (err, users) {
     usersList = users;
     res.status(200).send({
       status: 'success',
@@ -27,7 +28,12 @@ exports.allUsers = (req, res) => {
         usersList
       }
     }
-      
+
     );
   });
+};
+exports.roomName = (req, res) => {
+  let randomString = crypto.randomBytes(8).toString('hex');
+  console.log("random", randomString);
+  res.status(200).send(randomString);
 };

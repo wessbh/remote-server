@@ -30,4 +30,9 @@ module.exports = function(app) {
     [authJwt.verifyToken],
     controller.allUsers
   );
+  app.get(
+    "/api/roomName",
+    [authJwt.verifyToken],
+    controller.roomName
+  );
 };
