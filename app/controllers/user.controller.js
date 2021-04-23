@@ -35,5 +35,9 @@ exports.allUsers = (req, res) => {
 exports.roomName = (req, res) => {
   let randomString = crypto.randomBytes(8).toString('hex');
   console.log("random", randomString);
-  res.status(200).send(randomString);
+  res.status(200).send({
+    status: 'success',
+    code: 200,
+    data: randomString
+  });
 };
