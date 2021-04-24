@@ -1,5 +1,6 @@
 const { authJwt } = require("../middlewares");
 const controller = require("../controllers/user.controller");
+const callController = require("../controllers/call.controller");
 
 module.exports = function(app) {
   app.use(function(req, res, next) {
@@ -34,5 +35,10 @@ module.exports = function(app) {
     "/api/roomName",
     [authJwt.verifyToken],
     controller.roomName
+  );
+  app.post(
+    "/api/call/single",
+    [authJwt.verifyToken],
+    callController.callSingleUser
   );
 };
