@@ -20,11 +20,11 @@ exports.callSingleUser = (req, res) => {
         to: token,
         
         notification: {
-            title: 'Call', 
-            body: 'You received a call from: '+username
         },
         
         data: {  //you can send only notification or only data(or include both)
+            title: 'Call', 
+            body: 'You received a call from: '+username,
             "roomName": roomName
         }
     };
