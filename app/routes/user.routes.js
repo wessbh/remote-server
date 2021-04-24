@@ -41,4 +41,9 @@ module.exports = function(app) {
     [authJwt.verifyToken],
     callController.callSingleUser
   );
+  app.post(
+    "/api/call/group",
+    [authJwt.verifyToken],
+    callController.groupCall
+  );
 };
