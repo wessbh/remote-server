@@ -46,4 +46,9 @@ module.exports = function(app) {
     [authJwt.verifyToken],
     callController.groupCall
   );
+  app.post(
+    "/api/token/update",
+    [authJwt.verifyToken],
+    controller.updateUserToken
+  );
 };

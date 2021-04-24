@@ -41,3 +41,18 @@ exports.roomName = (req, res) => {
     data: randomString
   });
 };
+
+
+exports.updateUserToken = (req, res) => {
+  var id = req.body.id;
+  var newToken = req.body.token;
+
+  var criteria = {_id: id}
+  var newValue = {firebase_token: newToken}
+
+  User.updateOne(criteria, newValue, function(err, res){
+      if(err)
+        throw err;
+  })
+  res.status(200).send({message: "Token updated successfully"});
+}

@@ -4,6 +4,7 @@ const fireBaseConfig = require("../config/firebase.config");
 const db = require("../models");
 const User = db.user;
 var FCM = require('fcm-node');
+const e = require("cors");
 var fcm = new FCM(fireBaseConfig.serverKey);
 
 exports.callSingleUser = (req, res) => {
