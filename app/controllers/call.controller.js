@@ -9,9 +9,10 @@ var fcm = new FCM(fireBaseConfig.serverKey);
 exports.callSingleUser = (req, res) => {
     var token = req.body.token;
     var roomName = req.body.roomName;
+    var userName = req.body.username
     console.log("Token is: " + token);
     console.log("Room is: " + roomName);
-    sendPushNotification(token, roomName, "Wess");
+    sendPushNotification(token, roomName, userName);
     res.send({message: 'Sending push notification'})
   };
   function sendPushNotification(token, roomName, username){
