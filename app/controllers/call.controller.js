@@ -25,8 +25,7 @@ exports.callSingleUser = (req, res) => {
         },
         
         data: {  //you can send only notification or only data(or include both)
-            "name": 'wassim',
-            'product': 'PC'
+            "roomName": roomName
         }
     };
     fcm.send(message, function(err, response){
