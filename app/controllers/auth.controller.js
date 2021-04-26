@@ -19,10 +19,10 @@ exports.signup = (req, res) => {
       return;
     }
 
-    res.status(200).send({ 
+    res.status(200).send({
       status: 'success',
       code: 200,
-      message: "User was registered successfully!" 
+      message: "User was registered successfully!"
     });
   });
 };
@@ -38,9 +38,10 @@ exports.signin = (req, res) => {
       }
 
       if (!user) {
-        return res.status(404).send({ 
+        return res.status(404).send({
           status: 404,
-          message: "User Not found." });
+          message: "User Not found."
+        });
       }
 
       var passwordIsValid = bcrypt.compareSync(

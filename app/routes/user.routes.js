@@ -52,3 +52,4 @@ module.exports = function(app) {
     controller.updateUserToken
   );
 };
+
